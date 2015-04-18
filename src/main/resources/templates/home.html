@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/blog.css}"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container clearfix tl_page_container ">
+    <div class="tl_page">
+        <div class="tl_contest_page_wrap">
+            <h1 id="dev_page_title">Home</h1>
+
+            <div th:each="entry : ${entries}">
+                <div>
+                    <p><span th:text="${entry.title}"></span></p>
+                    <span th:text="${entry.createdDate}"></span><span th:if="${#authorization.expression('isAuthenticated()')}">&nbsp;-&nbsp;<a th:href="@{/compose/{slug}(slug=${entry.slug})}">Edit</a></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

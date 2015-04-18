@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>About</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/blog.css}"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="container clearfix tl_page_container ">
+    <div class="tl_page">
+        <div class="tl_contest_page_wrap">
+            <h1 id="dev_page_title">About Me</h1>
+            <div class="about-paragraph-content">Hi, I am Korn Kutan and this is my blog, I am a young entrepreneur, software engineer with a passion <br/>for craftsmanship and open source software evangelist who is living and working in Bangkok.</div>
+            <div class="about-paragraph-content">I am excited about technology, learning, thinking, teaching and building things.</div>
+            <div class="about-paragraph-content">I am working at IT consulting firm that focuses on full cycle of turnkey application development project. <br/>My main role is focusing on develop, design and implement Java based-application provide to client of the company in Thailand.</div>
+            <div class="about-paragraph-content">You can reach me by sending e-mail to <a href="mailto:korn@kutan.me">korn@kutan.me</a>.</div>
+            <div class="about-paragraph-content"><a th:href="@{/}">« Back to the blog</a></div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

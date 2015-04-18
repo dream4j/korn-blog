@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/blog.css}"/>
+</head>
+<body>
+<div class="tl_page_head navbar navbar-static-top navbar navbar-tg" th:fragment="header">
+    <div class="navbar-inner">
+        <div class="container clearfix">
+            <span class="navbar-brand">Korn.KUTAN.Stream();</span>
+            <ul class="nav navbar-nav">
+                <li th:classappend="${page == 'home' ? 'active' : 'normal'}"><a th:href="@{/}"><span th:text="#{ui.menu.home}"></span></a></li>
+                <li th:classappend="${page == 'journal' ? 'active' : 'normal'}"><a th:href="@{/journal}"><span th:text="#{ui.menu.journal}"></span></a></li>
+                <li th:classappend="${page == 'code' ? 'active' : 'normal'}"><a th:href="@{/code}"><span th:text="#{ui.menu.code}"></span></a></li>
+                <li th:classappend="${page == 'archive' ? 'active' : 'normal'}"><a th:href="@{/archive}"><span th:text="#{ui.menu.archive}"></span></a></li>
+                <li th:classappend="${page == 'about' ? 'active' : 'normal'}"><a th:href="@{/about}"><span th:text="#{ui.menu.about}"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

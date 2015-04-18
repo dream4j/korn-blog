@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Compose</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/blog.css}"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="container clearfix tl_page_container ">
+    <div class="tl_page">
+        <div class="tl_contest_page_wrap">
+            <form th:action="@{/compose}" method="post">
+                <div style="margin-bottom: 5px;"><input name="title" type="text" class="compose-title" placeholder="Title" th:value="${entry.title}"/></div>
+                <div style="margin-bottom: 5px;"><textarea name="markdown" rows="20" cols="40" class="compose-markdown" placeholder="Content" th:field="*{entry.markdown}"></textarea></div>
+                <div style="margin-bottom: 5px;"><input name="slug" type="text" class="compose-slug" placeholder="URL Slug" th:value="${entry.slug}"/></div>
+                <div style="margin-bottom: 5px;">
+                    <div style="float: right">
+                        <select name="type" style="width: 140px;">
+                            <option value="ENTRY">Blog Entry</option>
+                            <option value="CODING">Coding</option>
+                        </select>
+                    </div>
+                    <input type="checkbox" class="compose-published" name="published" id="published" th:checked="${entry.published}"/><label for="published">&nbsp;Publish Post</label>
+                    <input type="hidden" name="id" id="id" th:value="${entry.id}"/>
+                </div>
+                <div>
+                    <div style="float: right; padding-top: 6px;"><a href="http://daringfireball.net/projects/markdown/syntax/" target="_blank">Syntax documentation</a></div>
+                    <input type="submit" value="Post" class="compose-submit"/>&nbsp;-&nbsp;<a href="/">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
