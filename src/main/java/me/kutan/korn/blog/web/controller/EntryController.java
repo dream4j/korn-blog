@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import me.kutan.korn.blog.model.Entry;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +28,12 @@ public class EntryController {
     @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")
     private EntryService entryService;
+
+    private List<String> types = new ArrayList<>();
+    {
+        types.add(BLOG_ENTRY_TYPE);
+        types.add(CODING_TYPE);
+    }
 
     @RequestMapping(value = "/entry/{slug}", method = GET)
     public ModelAndView entry(@PathVariable String slug) {
@@ -44,6 +51,7 @@ public class EntryController {
 
         ModelAndView model = new ModelAndView(COMPOSE_TEMPLATE);
         model.addObject("entry", new Entry());
+        model.addObject("types", types);
 
         return model;
     }
@@ -55,6 +63,7 @@ public class EntryController {
         Entry entry = entryService.findEntryBySlug(slug);
         ModelAndView model = new ModelAndView(COMPOSE_TEMPLATE);
         model.addObject("entry", entry);
+        model.addObject("types", types);
 
         return model;
     }

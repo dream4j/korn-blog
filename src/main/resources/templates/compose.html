@@ -16,9 +16,8 @@
                 <div style="margin-bottom: 5px;"><input name="slug" type="text" class="compose-slug" placeholder="URL Slug" th:value="${entry.slug}"/></div>
                 <div style="margin-bottom: 5px;">
                     <div style="float: right">
-                        <select name="type" style="width: 140px;">
-                            <option value="ENTRY">Blog Entry</option>
-                            <option value="CODING">Coding</option>
+                        <select name="type" style="width: 140px;" th:field="*{entry.type}">
+                            <option th:each="type : ${types}" th:value="${type}" th:text="#{${'ui.entry.type.' + type}}"></option>
                         </select>
                     </div>
                     <input type="checkbox" class="compose-published" name="published" id="published" th:checked="${entry.published}"/><label for="published">&nbsp;Publish Post</label>
