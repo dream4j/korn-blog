@@ -8,24 +8,19 @@
 <body>
 <div th:replace="fragments/header :: header"></div>
 
-<div class="container clearfix tl_page_container ">
-    <div class="tl_page">
-        <div class="tl_contest_page_wrap">
-
-            <article>
-                <h1 th:text="#{ui.title.draft}"></h1>
-                <ul th:class="article-ul" th:each="entry : ${draftEntries}">
-                    <li>
-                        <a th:href="@{/compose/{slug}(slug=${entry.slug})}" th:text="${entry.title}"></a>
-                        <div th:class="date-display" th:text="${#dates.format(entry.updatedDate, 'dd.MM.yyyy HH:mm')}"></div>
-                    </li>
-                </ul>
-            </article>
-
-        </div>
+<div class="container clearfix">
+    <div class="contest-page-wrap">
+        <article>
+            <h1 th:text="#{ui.title.draft}"></h1>
+            <ul th:class="article-ul" th:each="entry : ${draftEntries}">
+                <li>
+                    <a th:href="@{/compose/{slug}(slug=${entry.slug})}" th:text="${entry.title}"></a>
+                    <div th:class="date-display" th:text="${#dates.format(entry.updatedDate, 'dd.MM.yyyy HH:mm')}"></div>
+                </li>
+            </ul>
+        </article>
     </div>
 </div>
-
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
