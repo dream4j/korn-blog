@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Compose</title>
+    <title th:text="#{ui.title.compose}"></title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/blog.css}"/>
 </head>
@@ -11,21 +11,21 @@
     <div class="tl_page">
         <div class="tl_contest_page_wrap">
             <form th:action="@{/compose}" method="post">
-                <div style="margin-bottom: 5px;"><input name="title" type="text" class="compose-title" placeholder="Title" th:value="${entry.title}"/></div>
-                <div style="margin-bottom: 5px;"><textarea name="markdown" rows="20" cols="40" class="compose-markdown" placeholder="Content" th:field="*{entry.markdown}"></textarea></div>
-                <div style="margin-bottom: 5px;"><input name="slug" type="text" class="compose-slug" placeholder="URL Slug" th:value="${entry.slug}"/></div>
-                <div style="margin-bottom: 5px;">
+                <div th:class="compose-element"><input name="title" type="text" th:class="compose-title" th:value="${entry.title}" th:placeholder="#{ui.compose.placeholder.title}"/></div>
+                <div th:class="compose-element"><textarea name="markdown" rows="20" cols="40" class="compose-markdown" th:field="*{entry.markdown}" th:placeholder="#{ui.compose.placeholder.markdown}"></textarea></div>
+                <div th:class="compose-element"><input name="slug" type="text" th:class="compose-slug" th:value="${entry.slug}" th:placeholder="#{ui.compose.placeholder.slug}"/></div>
+                <div th:class="compose-element">
                     <div style="float: right">
                         <select name="type" style="width: 140px;" th:field="*{entry.type}">
                             <option th:each="type : ${types}" th:value="${type}" th:text="#{${'ui.entry.type.' + type}}"></option>
                         </select>
                     </div>
-                    <input type="checkbox" class="compose-published" name="published" id="published" th:checked="${entry.published}"/><label for="published">&nbsp;Publish Post</label>
+                    <input type="checkbox" th:class="compose-published" name="published" id="published" th:checked="${entry.published}"/>&nbsp;<label for="published" th:text="#{ui.compose.label.publish}"></label>
                     <input type="hidden" name="id" id="id" th:value="${entry.id}"/>
                 </div>
                 <div>
-                    <div style="float: right; padding-top: 6px;"><a href="http://daringfireball.net/projects/markdown/syntax/" target="_blank">Syntax documentation</a></div>
-                    <input type="submit" value="Post" class="compose-submit"/>&nbsp;-&nbsp;<a href="/">Cancel</a>
+                    <div style="float: right; padding-top: 6px;"><a href="http://daringfireball.net/projects/markdown/syntax/" target="_blank" th:text="#{ui.link.markdown}"></a></div>
+                    <input type="submit" th:class="compose-submit" th:value="#{ui.button.post}"/>&nbsp;-&nbsp;<a th:href="@{/}" th:text="#{ui.link.cancel}"></a>
                 </div>
             </form>
         </div>

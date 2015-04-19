@@ -46,13 +46,4 @@ public class User extends BaseEntity {
         this.password  = password;
         this.enable    = true;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
 }

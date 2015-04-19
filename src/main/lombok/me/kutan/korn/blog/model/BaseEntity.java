@@ -20,10 +20,12 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public abstract class BaseEntity {
 
     @LastModifiedDate
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_date")
     private Date updatedDate;
 
     @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date")
     private Date createdDate;
 }

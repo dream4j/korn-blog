@@ -2,6 +2,7 @@ package me.kutan.korn.blog.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;

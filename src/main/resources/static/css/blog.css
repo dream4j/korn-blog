@@ -67,6 +67,10 @@
     padding: 6px;
 }
 
+.compose-element {
+    margin-bottom: 5px;
+}
+
 .compose-published, label {
     font-weight: normal;
 }
