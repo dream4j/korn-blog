@@ -43,4 +43,20 @@ public class Entry extends BaseEntity {
 
     @Column(name = "published_date")
     private Date publishedDate;
+
+    public Entry() {
+    }
+
+    public Entry(String title, String slug, Date updatedDate) {
+        this.title = title;
+        this.slug  = slug;
+        setUpdatedDate(updatedDate);
+    }
+
+    public Entry(String title, String slug, Date updatedDate, Date publishedDate) {
+        this.title = title;
+        this.slug  = slug;
+        this.publishedDate = publishedDate;
+        setUpdatedDate(updatedDate);
+    }
 }

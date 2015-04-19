@@ -11,12 +11,9 @@
             </script>
         </div>
         <div class="footer-wrap">
-            &copy; 2015 Korn Kutan&nbsp;-&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>
+            &copy; 2015 Korn Kutan&nbsp;-&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons License</a>&nbsp;-&nbsp;<a href="https://github.com/dream4j/korn-blog">Source</a>
             <span th:if="${#authorization.expression('isAuthenticated()')}">-&nbsp;<a th:href="@{/draft}"><span th:text="#{ui.menu.draft}"></span></a>&nbsp;-&nbsp;<a th:href="@{/compose}"><span th:text="#{ui.menu.compose}"></span></a>&nbsp;-&nbsp;<a th:href="@{/settings}"><span th:text="#{ui.menu.settings}"></span></a>&nbsp;-&nbsp;<a href="javascript:logout()"><span th:text="#{ui.menu.logout}"></span></a></span>
         </div>
-        <!--<a class="back_to_top_wrap" style="width: 621px;">
-            <div class="back_to_top" style="height: 621px;"><i class="icon icon-to-top"></i>Go up</div>
-        </a>-->
     </div>
 </body>
 </html>

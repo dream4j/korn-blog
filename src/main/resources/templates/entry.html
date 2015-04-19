@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home</title>
+    <title th:text="${entry.title}"></title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/blog.css}"/>
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-
-<div class="container clearfix tl_page_container ">
-    <div class="tl_page">
-        <div class="tl_contest_page_wrap">
-
-            <h1 id="dev_page_title" th:text="${entry.title}"></h1>
-            <span th:text="${entry.publishedDate}"></span><span th:if="${#authorization.expression('isAuthenticated()')}">&nbsp;-&nbsp;<a th:href="@{/compose/{slug}(slug=${entry.slug})}">Edit</a></span>
-            <div>
-                <p th:utext="${entry.body}"></p>
-            </div>
-
-        </div>
+<div class="container clearfix">
+    <div class="contest-page-wrap">
+        <article>
+            <h1 th:text="${entry.title}"></h1>
+            <div th:class="date-display">By Korn Kutan&nbsp;·&nbsp;<span th:text="${#dates.format(entry.publishedDate, 'dd.MM.yyyy HH:mm')}"></span><span th:if="${#authorization.expression('isAuthenticated()')}">&nbsp;-&nbsp;<a th:href="@{/compose/{slug}(slug=${entry.slug})}">Edit</a></span></div>
+            <div th:class="entry-body" th:utext="${entry.body}"></div>
+        </article>
     </div>
 </div>
-
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

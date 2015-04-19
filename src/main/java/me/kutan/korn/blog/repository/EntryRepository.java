@@ -22,9 +22,9 @@ public interface EntryRepository extends CrudRepository<Entry, Integer> {
     @Query("SELECT e FROM Entry e WHERE e.published = TRUE AND e.type = :type")
     List<Entry> findByType(@Param("type") String type);
 
-    @Query("SELECT e FROM Entry e WHERE e.published = FALSE")
+    @Query("SELECT NEW Entry(e.title, e.slug, e.updatedDate) FROM Entry e WHERE e.published = FALSE")
     List<Entry> findDraftEntries();
 
-    @Query("SELECT e.title, e.slug, e.publishedDate FROM Entry e WHERE e.published = TRUE")
+    @Query("SELECT NEW Entry(e.title, e.slug, e.updatedDate, e.publishedDate) FROM Entry e WHERE e.published = TRUE")
     List<Entry> findArchiveEntries();
 }

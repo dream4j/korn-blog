@@ -45,6 +45,8 @@ public class EntryServiceImpl implements EntryService {
         entry.setBody(html);
 
         /*<!-- Persisting: Entry. -->*/
+        entry.setUpdatedDate(new Date());
+
         entryRepository.save(entry);
     }
 

@@ -14,7 +14,5 @@ import me.kutan.korn.blog.model.User;
 @Transactional
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-    User findById(Integer id);
-
     User findByUsername(String username);
 }

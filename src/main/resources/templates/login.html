@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Sign In</title>
+    <title th:text="#{ui.menu.login}"></title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/blog.css}"/>
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-
 <div class="login-page">
     <div class="login-body">
-        <div th:if="${param.error}">Invalid ID or Password.</div>
         <form th:action="@{/login}" method="post">
+            <div th:if="${param.error}">Invalid ID or Password.</div>
             <div class="fields"><input placeholder="ID" type="text" name="username"/></div>
             <div class="fields"><input placeholder="Password" type="password" name="password"/></div>
             <button type="submit" class="submit">Sign In</button>

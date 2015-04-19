@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Draft Entries</title>
+    <title th:text="#{ui.title.draft}"></title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/blog.css}"/>
 </head>
@@ -11,14 +11,16 @@
 <div class="container clearfix tl_page_container ">
     <div class="tl_page">
         <div class="tl_contest_page_wrap">
-            <h1 id="dev_page_title">Draft Entries</h1>
 
-            <div th:each="entry : ${draftEntries}">
-                <div>
-                    <p><span th:text="${entry.title}"></span></p>
-                    <span th:text="${entry.createdDate}"></span>&nbsp;-&nbsp;<a th:href="@{/compose/{slug}(slug=${entry.slug})}">Edit</a>
-                </div>
-            </div>
+            <article>
+                <h1 th:text="#{ui.title.draft}"></h1>
+                <ul th:class="article-ul" th:each="entry : ${draftEntries}">
+                    <li>
+                        <a th:href="@{/compose/{slug}(slug=${entry.slug})}" th:text="${entry.title}"></a>
+                        <div th:class="date-display" th:text="${#dates.format(entry.updatedDate, 'dd.MM.yyyy HH:mm')}"></div>
+                    </li>
+                </ul>
+            </article>
 
         </div>
     </div>
